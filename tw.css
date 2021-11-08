@@ -1,0 +1,36 @@
+/** Get rid of the right sidebar */
+
+div[data-testid="primaryColumn"] {
+    max-width: none;
+}
+div[data-testid="primaryColumn"] div {
+    max-width: none !important;
+}
+div[data-testid="sidebarColumn"] {
+    display: none;
+    width: 0;
+}
+
+/** I believe the below is slightly modified from @alexwlchan's work
+  * https://github.com/alexwlchan/highlight-twitter-alt-text/blob/main/add_alt_text_overlay.css */
+
+div[data-testid="tweetPhoto"]:not([aria-label="Image"]),
+div[data-testid="previewInterstitial"]:not([aria-label="Embedded video"]) {
+    margin: 0 !important;
+}
+div[data-testid="tweetPhoto"]:not([aria-label="Image"]):after,
+div[data-testid="previewInterstitial"]:not([aria-label="Embedded video"]):after {
+    content: attr(aria-label);
+    background: rgba(0, 0, 0, .75);
+    color: #fff;
+    padding: 10px;
+    font-family: sans-serif;
+    line-height: 130%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+div[data-testid="tweetPhoto"]:not([aria-label="Image"]):hover:after,
+div[data-testid="previewInterstitial"]:not([aria-label="Embedded video"]):hover:after {
+    opacity: 1;
+}
