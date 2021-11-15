@@ -1,0 +1,24 @@
+// hide primaryColumn elements that aren't the tweet box
+div[data-testid="primaryColumn"] > div > :not(div:nth-child(2)) {
+  display: none;
+}
+
+// custom styles for the tweet box itself
+div[data-testid="primaryColumn"] > div > div:nth-child(2) {
+
+}
+
+// hide sidebarColumn
+div[data-testid="sidebarColumn"] {
+    display: none;
+}
+
+// hide DMDrawer
+div[data-testid="DMDrawer"] {
+  display: none;
+}
+
+// hide main nav
+header[role="banner"] {
+  display: none;
+}
